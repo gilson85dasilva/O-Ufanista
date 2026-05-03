@@ -23,6 +23,16 @@
             font-family: var(--font-body);
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
         body {
             background-color: var(--color-black);
             color: var(--color-primary-text);
@@ -41,11 +51,8 @@ h1,
         /* HEADER */
         header {
             position: relative;
-            height: 100vh;
-            height: 100dvh;
-            /* Melhor suporte mobile */
-            min-height: 600px;
-            /* Evita que fique muito pequeno em landscape */
+            height: clamp(480px, 100svh, 900px);
+            min-height: 480px;
             overflow: hidden;
         }
 
@@ -65,6 +72,7 @@ h1,
             transition: opacity 0.5s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .carousel-slide.active {
@@ -73,7 +81,7 @@ h1,
 
         .slide1 {
             /* Imagem padrão para desktops */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/image00.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/image01.jpeg');
         }
 
         .slide2 {
@@ -124,12 +132,12 @@ h1,
 
         .btn-header {
             position: absolute;
-            top: 30px;
+            top: clamp(16px, 3vw, 30px);
             background: #3d3c3c;
             color: #fff;
-            padding: 10px 22px;
+            padding: 10px clamp(16px, 2.5vw, 22px);
             border-radius: 999px;
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
@@ -176,12 +184,12 @@ h1,
         /* .btn-quem-somos removido */
 
         .btn-galeria {
-            right: 30px;
+            right: clamp(16px, 4vw, 30px);
             /* Movido para a antiga posição do Quem Somos (direita) */
         }
 
         .btn-portfolio {
-            right: 150px;
+            right: clamp(126px, 17vw, 150px);
             /* Aproximado do botão Galeria */
         }
 
@@ -194,8 +202,8 @@ h1,
             color: var(--color-white);
             border: none;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: clamp(40px, 6vw, 45px);
+            height: clamp(40px, 6vw, 45px);
             font-size: 1.2rem;
             cursor: pointer;
             z-index: 15;
@@ -220,7 +228,7 @@ h1,
 
         /* MAIN CONTENT */
         .content-section {
-            padding: 50px 5% 40px;
+            padding: clamp(42px, 8vw, 70px) max(5%, 18px) clamp(36px, 6vw, 52px);
             /* Reduzido top de 100px para 50px e bottom adicionado */
             background-color: var(--color-black);
             position: relative;
@@ -228,16 +236,17 @@ h1,
 
         .content-section h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
             margin-bottom: 1rem;
             color: var(--color-dark-gray);
+            line-height: 1.1;
         }
 
         .content-section p {
             max-width: 800px;
             margin: 0 auto 2rem;
             line-height: 1.6;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.8vw, 1.2rem);
             /* Slighly reduced for better body text scale */
             text-align: center;
             color: var(--color-secondary-text);
@@ -357,8 +366,9 @@ h1,
         }
 
         footer h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
             margin-bottom: 1rem;
+            line-height: 1.1;
         }
 
         footer p {
@@ -569,5 +579,171 @@ h1,
 
 
 
+        /* Ajustes finais de responsividade */
+        @media (max-width: 768px) {
+            header {
+                height: min(100svh, 720px);
+                min-height: 520px;
+            }
+
+            .btn-header {
+                position: absolute;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                top: max(14px, env(safe-area-inset-top));
+                width: min(42vw, 160px);
+                max-width: none;
+                min-height: 44px;
+                margin: 0;
+                padding: 11px 12px;
+                text-align: center;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            .btn-portfolio {
+                left: max(14px, env(safe-area-inset-left));
+                right: auto;
+            }
+
+            .btn-galeria {
+                left: auto;
+                right: max(14px, env(safe-area-inset-right));
+            }
+
+            .header-content {
+                top: auto;
+                bottom: max(7%, 42px);
+                width: min(88%, 620px);
+            }
+
+            .carousel-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+                background-color: rgba(0, 0, 0, 0.52);
+                backdrop-filter: blur(2px);
+            }
+
+            .carousel-btn-prev {
+                left: max(12px, env(safe-area-inset-left));
+            }
+
+            .carousel-btn-next {
+                right: max(12px, env(safe-area-inset-right));
+            }
+
+            .carousel-slide {
+                background-position: center top;
+            }
+
+            .slide1 {
+                background-position: 50% top;
+            }
+
+            .slide2 {
+                background-position: 48% top;
+            }
+
+            .slide3 {
+                background-position: 52% top;
+            }
+
+            .slide4 {
+                background-position: 50% top;
+            }
+
+            .content-section {
+                padding: clamp(44px, 10vw, 64px) max(5%, 18px);
+            }
+
+            .contact-details {
+                padding: 0 18px;
+            }
+
+            .contact-item {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .show-item {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header {
+                height: 100svh;
+                min-height: 500px;
+            }
+
+            .btn-header {
+                width: calc(50% - 20px);
+                max-width: none;
+                padding: 10px 8px;
+                font-size: 0.82rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .carousel-btn-prev {
+                left: 8px;
+            }
+
+            .carousel-btn-next {
+                right: 8px;
+            }
+
+            .social-icons a {
+                margin: 0 9px;
+            }
+
+            .footer-text {
+                padding: 0 18px;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .btn-header {
+                width: calc(50% - 16px);
+                font-size: 0.76rem;
+            }
+
+            .carousel-btn {
+                top: 54%;
+            }
+
+            .contact-item {
+                font-size: 0.92rem;
+            }
+        }
+
+        @media (max-height: 520px) and (orientation: landscape) {
+            header {
+                height: 100svh;
+                min-height: 360px;
+            }
+
+            .btn-header {
+                width: auto;
+                min-width: 120px;
+                min-height: 40px;
+                padding: 9px 14px;
+            }
+
+            .carousel-btn {
+                top: 58%;
+            }
+
+            .header-content {
+                bottom: 24px;
+            }
+        }
 
 
