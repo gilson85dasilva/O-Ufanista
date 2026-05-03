@@ -101,7 +101,7 @@ h1,
 
         .header-content {
             position: absolute;
-            bottom: 10%;
+            bottom: 4%;
             /* Fixado na parte inferior */
             left: 50%;
             transform: translateX(-50%);
@@ -117,7 +117,7 @@ h1,
             /* Usa vw para a fonte ser proporcional à largura da tela */
             font-size: clamp(2rem, 4.5vw, 3rem);
             /* Reduzido o texto para caber em uma linha */
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             font-weight: 700;
             transition: opacity 0.4s ease-in-out;
@@ -125,8 +125,8 @@ h1,
 
 
         .header-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
 
@@ -702,8 +702,8 @@ h1,
         /* Ajustes finais de responsividade */
         @media (max-width: 768px) {
             header {
-                height: min(100svh, 720px);
-                min-height: 520px;
+                height: min(100svh, 680px);
+                min-height: 480px;
             }
 
             .btn-header {
@@ -711,30 +711,30 @@ h1,
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                top: max(14px, env(safe-area-inset-top));
+                top: max(12px, env(safe-area-inset-top));
                 width: min(42vw, 160px);
                 max-width: none;
                 min-height: 44px;
                 margin: 0;
-                padding: 11px 12px;
+                padding: 10px 10px;
                 text-align: center;
                 line-height: 1.2;
                 white-space: nowrap;
             }
 
             .btn-portfolio {
-                left: max(14px, env(safe-area-inset-left));
+                left: max(12px, env(safe-area-inset-left));
                 right: auto;
             }
 
             .btn-galeria {
                 left: auto;
-                right: max(14px, env(safe-area-inset-right));
+                right: max(12px, env(safe-area-inset-right));
             }
 
             .header-content {
                 top: auto;
-                bottom: max(7%, 42px);
+                bottom: max(2%, 16px);
                 width: min(88%, 620px);
             }
 
@@ -770,7 +770,7 @@ h1,
             }
 
             .content-section {
-                padding: clamp(44px, 10vw, 64px) max(5%, 18px);
+                padding: clamp(20px, 6vw, 40px) max(5%, 18px);
             }
 
             .contact-details {
@@ -791,7 +791,7 @@ h1,
         @media (max-width: 500px) {
             header {
                 height: 100svh;
-                min-height: 500px;
+                min-height: 420px;
             }
 
             .btn-header {
