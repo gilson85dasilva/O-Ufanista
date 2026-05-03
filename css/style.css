@@ -755,24 +755,18 @@ h1,
             }
 
             .carousel-slide {
-                background-position: center top;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: #000;
             }
 
-            .slide1 {
-                background-position: 50% 40%;
-                background-size: cover;
-            }
-
-            .slide2 {
-                background-position: 48% top;
-            }
-
-            .slide3 {
-                background-position: 52% top;
-            }
-
+            .slide1,
+            .slide2,
+            .slide3,
             .slide4 {
-                background-position: 50% top;
+                background-position: center center;
+                background-size: contain;
             }
 
             .content-section {
