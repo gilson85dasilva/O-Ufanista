@@ -77,6 +77,23 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                menuToggle.setAttribute('aria-expanded', isOpen);
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                    mobileMenu.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
         // Pausa o carrossel ao passar o mouse e retoma ao sair
         if (carouselContainer) {
             carouselContainer.addEventListener('mouseenter', () => {
@@ -123,9 +140,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- LÓGICA DE REVEAL ---
+    // --- Lï¿½GICA DE REVEAL ---
     const reveals = document.querySelectorAll('.reveal');
-    // Observer para Animações de Scroll
+    // Observer para Animaï¿½ï¿½es de Scroll
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
